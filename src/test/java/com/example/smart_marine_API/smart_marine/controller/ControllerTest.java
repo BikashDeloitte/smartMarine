@@ -36,7 +36,7 @@ class ControllerTest {
         Mockito.when(portsService.getAllPorts()).thenReturn(result);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders
-                .get("http://localhost:8080/ports")
+                .get("http://localhost:8081/ports")
                 .accept(MediaType.APPLICATION_JSON);
 
         MockHttpServletResponse result1 = mockMvc.perform(requestBuilder).andReturn().getResponse();
