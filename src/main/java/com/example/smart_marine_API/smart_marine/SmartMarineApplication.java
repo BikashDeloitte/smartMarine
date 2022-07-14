@@ -22,6 +22,7 @@ public class SmartMarineApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		portsRepository.saveAll(Arrays.asList(
+				new Ports("Port Of Fernandina",30.6765, -81.4625),
 				new Ports("Red Hook Terminal", 40.6840, -74.0062),
 				new Ports("port of seattle", 47.6138, -122.3543),
 				new Ports("port of san francisco", 37.7749, -122.4194),
