@@ -38,8 +38,8 @@ public class SmartMarineApplication implements CommandLineRunner {
         Ports portShanghai = new Ports("port Shanghai", 31.2285, 121.4837);
         Ports portTaipei = new Ports("port Taipei", 25.1022, 121.6341);
         Ports portBrisbane = new Ports("port Brisbane", -26.6409, 152.6192);
-        Ports portIreland = new Ports("port Ireland",52.3398, -010.1473);
-        Ports portPortugal = new Ports("port portugal",39.1869, -009.4444);
+        Ports portIreland = new Ports("port Ireland",52.3398, -10.1473);
+        Ports portPortugal = new Ports("port portugal",39.1869, -9.4444);
         portsRepository.saveAll(Arrays.asList(
                 portFernandina,
                 redHookTerminal,
@@ -62,10 +62,10 @@ public class SmartMarineApplication implements CommandLineRunner {
                 new Ship(1L, portSeattle, portIwaki, 40.9799, -175.2444),
                 new Ship(2L, portOfSanFrancisco, portShanghai, 27.3718, 175.6179),
                 new Ship(3L, portTaipei, portOfOakland, 22.5937, 164.0201),
-                new Ship(4L, portBrisbane, portOfLosAngeles, -00.7031, -170.3242),
-                new Ship(5L,redHookTerminal , portIreland , 45.1717, -038.6146),
-                new Ship(6L,portFernandina , portPortugal , 32.9411, -042.1291),
-                new Ship(7L,portFernandina , portIreland , 36.1260, -033.3429)
+                new Ship(4L, portBrisbane, portOfLosAngeles, -0.7031, -170.3242),
+                new Ship(5L,redHookTerminal , portIreland , 45.1717, -38.6146),
+                new Ship(6L,portFernandina , portPortugal , 32.9411, -42.1291),
+                new Ship(7L,portFernandina , portIreland , 36.1260, -33.3429)
         ));
 
     }
