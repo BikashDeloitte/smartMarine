@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -17,9 +16,9 @@ public class Ship {
     @Id
     private Long shipId;
     @OneToOne
-    private Ports sourcePort;
+    private Port sourcePort;
     @OneToOne
-    private Ports destinationPort;
+    private Port destinationPort;
     private Double latitude;
     private Double longitude;
 

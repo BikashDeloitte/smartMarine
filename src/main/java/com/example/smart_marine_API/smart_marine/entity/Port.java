@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data @NoArgsConstructor
-public class Ports {
+public class Port {
 
     @Id
     @GeneratedValue
@@ -18,7 +18,7 @@ public class Ports {
     private Double latitude;
     private Double longitude;
 
-    public Ports(String name, Double latitude, Double longitude) {
+    public Port(String name, Double latitude, Double longitude) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
