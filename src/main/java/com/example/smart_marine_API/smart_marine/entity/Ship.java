@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 public class Ship {
     @Id
     private Long shipId;
+    private String name;
     @OneToOne
     private Port sourcePort;
     @OneToOne
