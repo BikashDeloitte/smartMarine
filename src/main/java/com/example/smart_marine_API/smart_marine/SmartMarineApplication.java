@@ -29,21 +29,28 @@ public class SmartMarineApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Port portFernandina = new Port("Port Of Fernandina", 30.6765, -81.4625);
-        Port portSeattle = new Port("port of seattle", 47.6138, -122.3543);
-        Port redHookTerminal = new Port("Red Hook Terminal", 40.6840, -74.0062);
-        Port portOfSanFrancisco = new Port("port of san francisco", 37.7749, -122.4194);
-        Port portHueneme = new Port("port Hueneme", 34.1492, -119.2087);
-        Port portOfSanDiego = new Port("Port of San Diego", 32.7355, -117.1772);
-        Port portOfOakland = new Port("Port of Oakland", 37.7957, -122.2792);
-        Port portOfLosAngeles = new Port("Port of Los Angeles", 33.7292, -118.2620);
-        Port portOfWestSacramento = new Port("Port of West Sacramento", 38.5654, -121.5488);
-        Port portIwaki = new Port("port Iwaki", 37.0490, 140.9693);
-        Port portShanghai = new Port("port Shanghai", 31.2285, 121.4837);
-        Port portTaipei = new Port("port Taipei", 25.1022, 121.6341);
-        Port portBrisbane = new Port("port Brisbane", -26.6409, 152.6192);
-        Port portIreland = new Port("port Ireland",52.3398, -10.1473);
-        Port portPortugal = new Port("port portugal",39.1869, -9.4444);
+        Port portFernandina = new Port(1L,"Fernandina","USA", 30.6765, -81.4625);
+        Port portSeattle = new Port(91L,"Seattle","USA", 47.6138, -122.3543);
+        Port redHookTerminal = new Port(41L,"New York","USA", 40.6840, -74.0062);
+        Port portOfSanFrancisco = new Port(31L,"San Francisco","USA", 37.7749, -122.4194);
+        Port portHueneme = new Port(21L,"Hueneme","USA", 34.1492, -119.2087);
+        Port portOfSanDiego = new Port(51L,"San Diego","USA", 32.7355, -117.1772);
+        Port portOfOakland = new Port(61L,"Oakland","USA", 37.7957, -122.2792);
+        Port portOfWestSacramento = new Port(71L,"West Sacramento","USA", 38.5654, -121.5488);
+        Port portIwaki = new Port(81L,"Iwaki","JAPAN", 37.0490, 140.9693);
+        Port portShanghai = new Port(101L,"Shanghai","CHINA", 31.2285, 121.4837);
+        Port portTaipei = new Port(111L,"Taipei","TAIWAN", 25.1022, 121.6341);
+        Port portBrisbane = new Port(121L,"Brisbane","AUSTRALIA", -26.6409, 152.6192);
+        Port portIreland = new Port(131L,"Ireland","IRELAND",52.3398, -10.1473);
+        Port portPortugal = new Port(141L,"portugal","PORTUGAL",39.1869, -9.4444);
+        Port portOfLosAngeles = new Port(151L,"Los Angeles","USA", 33.7292, -118.2620);
+        Port portXiamen = new Port(161L,"XIAMEN","CHINA",24.50318,118.0293);
+        Port portYantian = new Port(171L,"YANTIAN","CHINA",22.575,114.2765);
+        Port portTanjungPelepas = new Port(181L,"TANJUNG PELEPAS","MALAYSIA",1.3855,103.541);
+        Port portPasirGudang = new Port(191L,"PASIR GUDANG","MALAYSIA",1.432973,103.9119);
+        Port portHongKong = new Port(201L,"HONG KONG","HONG KONG",22.28795,114.1814);
+        Port portVungTau = new Port(211L,"VUNG TAU","VIETNAM",10.39457,107.0985);
+
         portRepository.saveAll(Arrays.asList(
                 portFernandina,
                 redHookTerminal,
@@ -59,7 +66,13 @@ public class SmartMarineApplication implements CommandLineRunner {
                 portTaipei,
                 portBrisbane,
                 portIreland,
-                portPortugal
+                portPortugal,
+                portXiamen,
+                portYantian,
+                portTanjungPelepas,
+                portPasirGudang,
+                portHongKong,
+                portVungTau
         ));
 
         shipRepository.saveAll(Arrays.asList(
