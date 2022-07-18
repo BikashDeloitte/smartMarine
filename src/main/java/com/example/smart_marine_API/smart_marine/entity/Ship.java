@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import java.util.List;
 
 @Entity
 @Data
@@ -21,5 +23,7 @@ public class Ship {
     private Port destinationPort;
     private Double latitude;
     private Double longitude;
+    @ElementCollection
+    private List<Routers> routersList;
 
 }

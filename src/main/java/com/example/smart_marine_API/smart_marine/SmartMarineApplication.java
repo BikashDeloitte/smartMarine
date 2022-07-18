@@ -1,6 +1,7 @@
 package com.example.smart_marine_API.smart_marine;
 
 import com.example.smart_marine_API.smart_marine.entity.Port;
+import com.example.smart_marine_API.smart_marine.entity.Routers;
 import com.example.smart_marine_API.smart_marine.entity.Ship;
 import com.example.smart_marine_API.smart_marine.entity.Warehouse;
 import com.example.smart_marine_API.smart_marine.respository.PortRepository;
@@ -11,7 +12,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 public class SmartMarineApplication implements CommandLineRunner {
@@ -29,6 +32,11 @@ public class SmartMarineApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        List<Routers> routersList = new ArrayList<>();
+        Routers routers = new Routers(45.1717, -38.6146);
+        routersList.add(routers);
+        routersList.add(routers);
+
         Port portFernandina = new Port(1L,"Fernandina","USA", 30.6765, -81.4625);
         Port portSeattle = new Port(91L,"Seattle","USA", 47.6138, -122.3543);
         Port redHookTerminal = new Port(41L,"New York","USA", 40.6840, -74.0062);
@@ -43,13 +51,13 @@ public class SmartMarineApplication implements CommandLineRunner {
         Port portBrisbane = new Port(121L,"Brisbane","AUSTRALIA", -26.6409, 152.6192);
         Port portIreland = new Port(131L,"Ireland","IRELAND",52.3398, -10.1473);
         Port portPortugal = new Port(141L,"portugal","PORTUGAL",39.1869, -9.4444);
-        Port portOfLosAngeles = new Port(151L,"Los Angeles","USA", 33.7292, -118.2620);
-        Port portXiamen = new Port(161L,"XIAMEN","CHINA",24.50318,118.0293);
-        Port portYantian = new Port(171L,"YANTIAN","CHINA",22.575,114.2765);
-        Port portTanjungPelepas = new Port(181L,"TANJUNG PELEPAS","MALAYSIA",1.3855,103.541);
-        Port portPasirGudang = new Port(191L,"PASIR GUDANG","MALAYSIA",1.432973,103.9119);
-        Port portHongKong = new Port(201L,"HONG KONG","HONG KONG",22.28795,114.1814);
-        Port portVungTau = new Port(211L,"VUNG TAU","VIETNAM",10.39457,107.0985);
+        Port portOfLosAngeles = new Port(87L,"Los Angeles","USA", 33.7292, -118.2620);
+        Port portXiamen = new Port(959L,"XIAMEN","CHINA",24.50318,118.0293);
+        Port portYantian = new Port(1006L,"YANTIAN","CHINA",22.575,114.2765);
+        Port portTanjungPelepas = new Port(1010L,"TANJUNG PELEPAS","MALAYSIA",1.3855,103.541);
+        Port portPasirGudang = new Port(1634L,"PASIR GUDANG","MALAYSIA",1.432973,103.9119);
+        Port portHongKong = new Port(2429L,"HONG KONG","HONG KONG",22.28795,114.1814);
+        Port portVungTau = new Port(2999L,"VUNG TAU","VIETNAM",10.39457,107.0985);
 
         portRepository.saveAll(Arrays.asList(
                 portFernandina,
@@ -80,9 +88,12 @@ public class SmartMarineApplication implements CommandLineRunner {
 //                new Ship(2L, portOfSanFrancisco, portShanghai, 27.3718, 175.6179),
 //                new Ship(3L, portTaipei, portOfOakland, 22.5937, 164.0201),
 //                new Ship(4L, portBrisbane, portOfLosAngeles, -0.7031, -170.3242),
-                new Ship(5L,redHookTerminal , portIreland , 45.1717, -38.6146),
-                new Ship(6L,portFernandina , portPortugal , 32.9411, -42.1291),
-                new Ship(7L,portFernandina , portIreland , 36.1260, -33.3429)
+                new Ship(5L,redHookTerminal , portIreland , 45.1717, -38.6146,routersList),
+                new Ship(6L,portFernandina , portPortugal , 32.9411, -42.1291,routersList),
+                new Ship(7L,portFernandina , portIreland , 36.1260, -33.3429,routersList)
+//                new Ship(8L,portTanjungPelepas, portXiamen,17.7836,115.3637,Arrays.asList(
+//                        new Routers(17.7836,115.3637),
+//                        ))
         ));
 
         warehouseRepository.saveAll(Arrays.asList(
