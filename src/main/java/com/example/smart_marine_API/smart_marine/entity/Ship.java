@@ -19,10 +19,13 @@ public class Ship {
     private Port sourcePort;
     @OneToOne
     private Port destinationPort;
-    private Double latitude;
-    private Double longitude;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Location liveLocation;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "shipId",referencedColumnName = "shipId")
     private List<Port> portList;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "shipId",referencedColumnName = "shipId")
+    private List<Location> locationList;
 }

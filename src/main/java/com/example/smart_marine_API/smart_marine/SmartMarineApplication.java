@@ -1,6 +1,7 @@
 package com.example.smart_marine_API.smart_marine;
 
 import com.example.smart_marine_API.smart_marine.entity.Port;
+import com.example.smart_marine_API.smart_marine.entity.Location;
 import com.example.smart_marine_API.smart_marine.entity.Ship;
 import com.example.smart_marine_API.smart_marine.entity.Warehouse;
 import com.example.smart_marine_API.smart_marine.respository.PortRepository;
@@ -11,7 +12,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 public class SmartMarineApplication implements CommandLineRunner {
@@ -29,10 +32,17 @@ public class SmartMarineApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        List<Routers> routersList = new ArrayList<>();
-//        Routers routers = new Routers(45.1717, -38.6146);
-//        routersList.add(routers);
-//        routersList.add(routers);
+        List<Location> locationWanderlust = new ArrayList<>();
+        List<Location> locationTitanic = new ArrayList<>();
+        List<Location> locationLiberty = new ArrayList<>();
+        List<Location> locationBlackPearl = new ArrayList<>();
+        locationWanderlust.add(new Location(40.6840, -74.0062));
+        locationWanderlust.add(new Location(52.3398, -10.1473));
+        locationTitanic.add(new Location(30.6765, -81.4625));
+        locationTitanic.add(new Location(39.1869, -9.4444));
+        locationLiberty.add(new Location(30.6765, -81.4625));
+        locationLiberty.add(new Location(52.3398, -10.1473));
+        locationBlackPearl.add(new Location(1.3855,103.541));
 
         Port portFernandina = new Port(1L,"Fernandina","USA", 30.6765, -81.4625);
         Port portSeattle = new Port(91L,"Seattle","USA", 47.6138, -122.3543);
@@ -85,16 +95,17 @@ public class SmartMarineApplication implements CommandLineRunner {
 //                new Ship(2L, portOfSanFrancisco, portShanghai, 27.3718, 175.6179),
 //                new Ship(3L, portTaipei, portOfOakland, 22.5937, 164.0201),
 //                new Ship(4L, portBrisbane, portOfLosAngeles, -0.7031, -170.3242),
-                new Ship(5L,"Wanderlust",redHookTerminal , portIreland , 45.1717, -38.6146,Arrays.asList(redHookTerminal,portFernandina)),
-                new Ship(6L,"Titanic",portFernandina , portPortugal , 32.9411, -42.1291,Arrays.asList(portFernandina,portPortugal)),
-                new Ship(7L,"Liberty",portFernandina , portIreland , 36.1260, -33.3429,Arrays.asList(portFernandina,portIreland)),
-                new Ship(8L,"BlackPearl",portTanjungPelepas, portOfLosAngeles,17.7836,115.3637,Arrays.asList(portTanjungPelepas,
+                new Ship(5L,"Wanderlust",redHookTerminal , portIreland , new Location(45.1717, -38.6146),Arrays.asList(redHookTerminal,portFernandina), locationWanderlust),
+                new Ship(6L,"Titanic",portFernandina , portPortugal , new Location(32.9411, -42.1291),Arrays.asList(portFernandina,portPortugal), locationTitanic),
+                new Ship(7L,"Liberty",portFernandina , portIreland , new Location(36.1260, -33.3429),Arrays.asList(portFernandina,portIreland), locationLiberty),
+                new Ship(8L,"BlackPearl",portTanjungPelepas, portOfLosAngeles,new Location(17.7836,115.3637),Arrays.asList(portTanjungPelepas,
                         portXiamen,
                         portVungTau,
                         portHongKong,
                         portYantian,
                         portXiamen,
-                        portOfLosAngeles))
+                        portOfLosAngeles),
+                        locationBlackPearl)
         ));
 
         warehouseRepository.saveAll(Arrays.asList(

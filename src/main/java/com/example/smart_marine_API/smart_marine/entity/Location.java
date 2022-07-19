@@ -6,12 +6,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 @Component
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-@Embeddable
-public class Routers {
+public class Location {
+    @Id
+    @GeneratedValue
+    private Long routesId;
     private Double latitude;
     private Double longitude;
+
+    public Location(Double latitude, Double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 }
