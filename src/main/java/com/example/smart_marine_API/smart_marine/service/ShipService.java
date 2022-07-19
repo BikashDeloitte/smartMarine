@@ -8,10 +8,7 @@ import com.example.smart_marine_API.smart_marine.respository.ShipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class ShipService {
@@ -58,6 +55,7 @@ public class ShipService {
             }
 
             for (Port port: portNotTravel){
+                System.out.println(shipId+" = "+ port.getLocation().getLatitude()+ " "+port.getLocation().getLongitude());
                 portNotTravelLocation.add(port.getLocation());
             }
         }else{
