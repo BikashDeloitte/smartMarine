@@ -1,5 +1,6 @@
 package com.example.smart_marine_API.smart_marine.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 @Component
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Location {
+    @JsonIgnore
     @Id
     @GeneratedValue
     private Long locationId;
