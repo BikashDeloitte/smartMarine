@@ -8,8 +8,10 @@ import com.example.smart_marine_API.smart_marine.respository.ShipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class ShipService {
@@ -64,9 +66,12 @@ public class ShipService {
         return portNotTravelLocation;
     }
 
-    public Map<Long,List<Location>> getNotTravelPortsLocationMap() {
+    public Map<Long,List<Location>> getNotTravelPortsLocationMap(){
         List<Ship> shipList = shipRepository.findAll();
-        return shipList.stream()
-                .collect(Collectors.toMap(Ship::getShipId,ship -> getNotTravelPortsLocation(ship.getShipId())));
+        Map<Long,List<Location>> locationMap = new HashMap<>();
+        for(Ship ship : shipList){
+            locationMap.put(ship.getShipId(),getNotTravelPortsLocation(ship.getShipId()));
+        }
+        return locationMap;
     }
 }

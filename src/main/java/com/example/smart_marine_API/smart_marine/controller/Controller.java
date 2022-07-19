@@ -7,7 +7,9 @@ import com.example.smart_marine_API.smart_marine.entity.Warehouse;
 import com.example.smart_marine_API.smart_marine.service.PortService;
 import com.example.smart_marine_API.smart_marine.service.ShipService;
 import com.example.smart_marine_API.smart_marine.service.WarehouseService;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @CrossOrigin
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @RestController
 public class Controller {
 
@@ -55,8 +58,9 @@ public class Controller {
     }
 
     //get not travelled port list for all ship
-    @GetMapping("/ships/portList")
-    public ResponseEntity<?> getNotTravelPortsLocationMap(){
+
+    @GetMapping(path = "/ships/portList",produces= MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Object> getNotTravelPortsLocationMap(){
         Map<Long, List<Location>> locationList = shipService.getNotTravelPortsLocationMap();
         return ResponseEntity.ok(locationList);
     }
