@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -50,6 +51,13 @@ public class Controller {
     @GetMapping("/ships/portList/{shipId}")
     public ResponseEntity<?> getNotTravelPortsLocation(@PathVariable Long shipId){
         List<Location> locationList = shipService.getNotTravelPortsLocation(shipId);
+        return ResponseEntity.ok(locationList);
+    }
+
+    //get not travelled port list for all ship
+    @GetMapping("/ships/portList")
+    public ResponseEntity<?> getNotTravelPortsLocationMap(){
+        Map<Long, List<Location>> locationList = shipService.getNotTravelPortsLocationMap();
         return ResponseEntity.ok(locationList);
     }
 }

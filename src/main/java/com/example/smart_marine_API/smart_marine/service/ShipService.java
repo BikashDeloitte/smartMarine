@@ -8,9 +8,7 @@ import com.example.smart_marine_API.smart_marine.respository.ShipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -64,5 +62,11 @@ public class ShipService {
             throw new RuntimeException(" ship no found");
         }
         return portNotTravelLocation;
+    }
+
+    public Map<Long,List<Location>> getNotTravelPortsLocationMap() {
+        List<Ship> shipList = shipRepository.findAll();
+        return shipList.stream()
+                .collect(Collectors.toMap(Ship::getShipId,ship -> getNotTravelPortsLocation(ship.getShipId())));
     }
 }
