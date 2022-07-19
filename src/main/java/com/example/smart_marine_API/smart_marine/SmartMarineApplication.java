@@ -98,7 +98,7 @@ public class SmartMarineApplication implements CommandLineRunner {
                 new Ship(5L,"Wanderlust",redHookTerminal , portIreland , portIreland, new Location(45.1717, -38.6146),Arrays.asList(redHookTerminal,portFernandina), locationWanderlust),
                 new Ship(6L,"Titanic",portFernandina , portPortugal , portPortugal, new Location(32.9411, -42.1291),Arrays.asList(portFernandina,portPortugal), locationTitanic),
                 new Ship(7L,"Liberty",portFernandina , portIreland ,portIreland, new Location(36.1260, -33.3429),Arrays.asList(portFernandina,portIreland), locationLiberty),
-                new Ship(8L,"BlackPearl",portTanjungPelepas, portOfLosAngeles,portXiamen,new Location(17.7836,115.3637),Arrays.asList(
+                new Ship(8L,"BlackPearl",portTanjungPelepas, portOfLosAngeles,portXiamen,new Location(1.3855,103.541),Arrays.asList(
                         portTanjungPelepas,
                         portXiamen,
                         portVungTau,
