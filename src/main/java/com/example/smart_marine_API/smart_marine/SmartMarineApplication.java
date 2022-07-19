@@ -37,11 +37,11 @@ public class SmartMarineApplication implements CommandLineRunner {
         List<Location> locationLiberty = new ArrayList<>();
         List<Location> locationBlackPearl = new ArrayList<>();
         locationWanderlust.add(new Location(40.6840, -74.0062));
-        locationWanderlust.add(new Location(52.3398, -10.1473));
+        locationWanderlust.add(new Location(45.1717, -38.6146));
         locationTitanic.add(new Location(30.6765, -81.4625));
-        locationTitanic.add(new Location(39.1869, -9.4444));
+        locationTitanic.add( new Location(32.9411, -42.1291));
         locationLiberty.add(new Location(30.6765, -81.4625));
-        locationLiberty.add(new Location(52.3398, -10.1473));
+        locationLiberty.add(new Location(36.1260, -33.3429));
         locationBlackPearl.add(new Location(1.3855,103.541));
 
         Port portFernandina = new Port(1L,"Fernandina","USA", new Location(30.6765, -81.4625));
