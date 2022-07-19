@@ -16,7 +16,7 @@ import javax.persistence.Id;
 public class Location {
     @Id
     @GeneratedValue
-    private Long routesId;
+    private Long locationId;
     private Double latitude;
     private Double longitude;
 

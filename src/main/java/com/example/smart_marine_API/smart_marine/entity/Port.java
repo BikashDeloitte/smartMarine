@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data @NoArgsConstructor
@@ -17,7 +15,7 @@ public class Port {
     private Long portId;
     private String locationName;
     private String locationCountry;
-    private Double latitude;
-    private Double longitude;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Location location;
 
 }

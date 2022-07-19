@@ -19,6 +19,8 @@ public class Ship {
     private Port sourcePort;
     @OneToOne
     private Port destinationPort;
+    @OneToOne
+    private Port nextPort;
     @OneToOne(cascade = CascadeType.ALL)
     private Location liveLocation;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

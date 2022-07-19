@@ -40,9 +40,16 @@ public class Controller {
     }
 
     //update the liveLocation and add liveLocation to ship locationList
-    @PutMapping("/ship/{shipId}")
-    public ResponseEntity<?> updateLiveLocation(@PathVariable Long shipId, @RequestBody Location location){
-        Ship ship = shipService.updateLiveLocation(shipId,location);
+    @PutMapping("/ships/{shipId}/{portId}")
+    public ResponseEntity<Ship> updateLiveLocation(@PathVariable Long shipId,@PathVariable Long portId, @RequestBody Location location){
+        Ship ship = shipService.updateLiveLocation(shipId,portId,location);
         return ResponseEntity.ok(ship);
+    }
+
+    //get list of port location not travelled
+    @GetMapping("/ships/portList/{shipId}")
+    public ResponseEntity<?> getNotTravelPortsLocation(@PathVariable Long shipId){
+        List<Location> locationList = shipService.getNotTravelPortsLocation(shipId);
+        return ResponseEntity.ok(locationList);
     }
 }
