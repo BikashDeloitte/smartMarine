@@ -24,7 +24,5 @@ public class Ship {
     private Port destinationPort;
     private Double latitude;
     private Double longitude;
-    @ElementCollection
-    private List<Routers> routersList;
 
 }

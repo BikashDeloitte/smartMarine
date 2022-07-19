@@ -12,6 +12,6 @@ import javax.persistence.Embeddable;
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 @Embeddable
 public class Routers {
-    private Double source;
-    private Double destination;
+    private Double latitude;
+    private Double longitude;
 }
