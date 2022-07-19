@@ -1,7 +1,6 @@
 package com.example.smart_marine_API.smart_marine;
 
 import com.example.smart_marine_API.smart_marine.entity.Port;
-import com.example.smart_marine_API.smart_marine.entity.Routers;
 import com.example.smart_marine_API.smart_marine.entity.Ship;
 import com.example.smart_marine_API.smart_marine.entity.Warehouse;
 import com.example.smart_marine_API.smart_marine.respository.PortRepository;
@@ -12,9 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 @SpringBootApplication
 public class SmartMarineApplication implements CommandLineRunner {
@@ -67,7 +64,6 @@ public class SmartMarineApplication implements CommandLineRunner {
                 portHueneme,
                 portOfSanDiego,
                 portOfOakland,
-                portOfLosAngeles,
                 portOfWestSacramento,
                 portIwaki,
                 portShanghai,
@@ -75,6 +71,7 @@ public class SmartMarineApplication implements CommandLineRunner {
                 portBrisbane,
                 portIreland,
                 portPortugal,
+                portOfLosAngeles,
                 portXiamen,
                 portYantian,
                 portTanjungPelepas,
@@ -88,12 +85,16 @@ public class SmartMarineApplication implements CommandLineRunner {
 //                new Ship(2L, portOfSanFrancisco, portShanghai, 27.3718, 175.6179),
 //                new Ship(3L, portTaipei, portOfOakland, 22.5937, 164.0201),
 //                new Ship(4L, portBrisbane, portOfLosAngeles, -0.7031, -170.3242),
-                new Ship(5L,"Wanderlust",redHookTerminal , portIreland , 45.1717, -38.6146),
-                new Ship(6L,"Titanic",portFernandina , portPortugal , 32.9411, -42.1291),
-                new Ship(7L,"Liberty",portFernandina , portIreland , 36.1260, -33.3429)
-//                new Ship(8L,portTanjungPelepas, portXiamen,17.7836,115.3637,Arrays.asList(
-//                        new Routers(17.7836,115.3637),
-//                        ))
+                new Ship(5L,"Wanderlust",redHookTerminal , portIreland , 45.1717, -38.6146,Arrays.asList(redHookTerminal,portFernandina)),
+                new Ship(6L,"Titanic",portFernandina , portPortugal , 32.9411, -42.1291,Arrays.asList(portFernandina,portPortugal)),
+                new Ship(7L,"Liberty",portFernandina , portIreland , 36.1260, -33.3429,Arrays.asList(portFernandina,portIreland)),
+                new Ship(8L,"BlackPearl",portTanjungPelepas, portOfLosAngeles,17.7836,115.3637,Arrays.asList(portTanjungPelepas,
+                        portXiamen,
+                        portVungTau,
+                        portHongKong,
+                        portYantian,
+                        portXiamen,
+                        portOfLosAngeles))
         ));
 
         warehouseRepository.saveAll(Arrays.asList(
